@@ -24,3 +24,8 @@
 ### 4. Run the Client
 
 `npm run dev`
+
+## Time Spent
+
+- ~ 1 hour on backend.
+- Remaining time on frontend
