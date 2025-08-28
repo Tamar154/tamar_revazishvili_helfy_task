@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import { getTasks } from "./api";
+import { getTasks, addTask } from "./api";
 import TaskList from "./components/TaskList";
 import TaskForm from "./components/TaskForm";
 
@@ -16,9 +16,16 @@ function App() {
     fetchTasks();
   }, []);
 
+  const handleAdd = async (task) => {
+    const newTask = await addTask(task);
+    console.log("Task from addTask: ", newTask);
+
+    setTasks([...tasks, newTask]);
+  };
+
   return (
     <div>
-      {/* <TaskForm /> */}
+      <TaskForm onAdd={handleAdd} />
       <TaskList tasks={tasks} />
     </div>
   );
