@@ -15,9 +15,12 @@ const TaskItem = ({ task, onDelete, onToggle }) => {
       <p>{`created at: ${task.createdAt}`}</p>
       <p> {task.completed ? "Completed" : "Not Completed"}</p>
 
-      <button onClick={handleDelete}>Delete</button>
-      <button>Edit</button>
-      <button onClick={handleToggle}>Toggle complete</button>
+      <button onClick={handleDelete}>❌ Delete</button>
+      <button>✏️ Edit</button>
+      <button onClick={handleToggle}>
+        {" "}
+        {task.completed ? "❎Mark Uncompleted" : "✅Mark Completed"}
+      </button>
     </span>
   );
 };
