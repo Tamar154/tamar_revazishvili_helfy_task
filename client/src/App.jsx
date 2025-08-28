@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import { getTasks, addTask } from "./api";
+import { getTasks, addTask, deleteTask } from "./api";
 import TaskList from "./components/TaskList";
 import TaskForm from "./components/TaskForm";
 
@@ -23,10 +23,16 @@ function App() {
     setTasks([...tasks, newTask]);
   };
 
+  const handleDelete = async (task) => {
+    await deleteTask(task.id);
+    const newTasks = tasks.filter((t) => t.id !== task.id);
+    setTasks(newTasks);
+  };
+
   return (
     <div>
       <TaskForm onAdd={handleAdd} />
-      <TaskList tasks={tasks} />
+      <TaskList tasks={tasks} onDelete={handleDelete} />
     </div>
   );
 }
