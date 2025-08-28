@@ -37,6 +37,7 @@ function App() {
 
   return (
     <div>
+      <h1>Tasks App</h1>
       <TaskForm onAdd={handleAdd} />
       <TaskList tasks={tasks} onDelete={handleDelete} onToggle={handleToggle} />
     </div>
