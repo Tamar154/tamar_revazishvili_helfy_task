@@ -2,16 +2,20 @@ import { useState } from "react";
 
 const TaskForm = ({ onAdd }) => {
   const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [priority, setPriority] = useState("low");
 
   const handleSubmit = (event) => {
     event.preventDefault(); // prevent page from refreshing
 
     onAdd({
       title,
-      description: "hardcoded for now",
-      priority: "hardcoded for now",
+      description,
+      priority,
     });
     setTitle("");
+    setDescription("");
+    setPriority("low");
   };
 
   console.log(title);
@@ -25,7 +29,21 @@ const TaskForm = ({ onAdd }) => {
           value={title}
           onChange={(event) => setTitle(event.target.value)}
         />
+        <input
+          type="text"
+          placeholder="description"
+          value={description}
+          onChange={(event) => setDescription(event.target.value)}
+        />
 
+        <select
+          value={priority}
+          onChange={(event) => setPriority(event.target.value)}
+        >
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
         <button>Add</button>
       </form>
     </>

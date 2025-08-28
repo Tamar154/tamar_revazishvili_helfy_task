@@ -1,8 +1,15 @@
 const TaskItem = ({ task }) => {
   return (
-    <div>
-      <span>{task.description}</span>
-    </div>
+    <span>
+      <h2>{task.title}</h2>
+      <p>{task.description}</p>
+      <p>{`priority: ${task.priority}`}</p>
+      <p>{`created at: ${task.createdAt}`}</p>
+
+      <button>Delete</button>
+      <button>Edit</button>
+      <button>Toggle complete</button>
+    </span>
   );
 };
 
