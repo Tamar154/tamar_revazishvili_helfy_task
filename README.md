@@ -11,6 +11,8 @@
 
 `git clone https://github.com/Tamar154/tamar_revazishvili_helfy_task.git`
 
+`cd tamar_revazishvili_helfy_task`
+
 ### 2. In both `client` and `server` folders:
 
 `npm install`
