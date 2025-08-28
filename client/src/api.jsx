@@ -14,3 +14,9 @@ export const addTask = async (task) => {
 export const deleteTask = async (id) => {
   await axios.delete(`${API_URL}/${id}`);
 };
+
+// PATCH for toggling completed
+export const toggleCompleted = async (id) => {
+  const response = await axios.patch(`${API_URL}/${id}/toggle`);
+  return response.data;
+};

@@ -1,6 +1,10 @@
-const TaskItem = ({ task, onDelete }) => {
+const TaskItem = ({ task, onDelete, onToggle }) => {
   const handleDelete = () => {
     onDelete(task);
+  };
+
+  const handleToggle = () => {
+    onToggle(task);
   };
 
   return (
@@ -9,10 +13,11 @@ const TaskItem = ({ task, onDelete }) => {
       <p>{task.description}</p>
       <p>{`priority: ${task.priority}`}</p>
       <p>{`created at: ${task.createdAt}`}</p>
+      <p> {task.completed ? "Completed" : "Not Completed"}</p>
 
       <button onClick={handleDelete}>Delete</button>
       <button>Edit</button>
-      <button>Toggle complete</button>
+      <button onClick={handleToggle}>Toggle complete</button>
     </span>
   );
 };

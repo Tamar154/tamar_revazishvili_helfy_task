@@ -18,8 +18,6 @@ const TaskForm = ({ onAdd }) => {
     setPriority("low");
   };
 
-  console.log(title);
-
   return (
     <>
       <form onSubmit={handleSubmit}>

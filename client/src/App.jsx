@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import { getTasks, addTask, deleteTask } from "./api";
+import { getTasks, addTask, deleteTask, toggleCompleted } from "./api";
 import TaskList from "./components/TaskList";
 import TaskForm from "./components/TaskForm";
 
@@ -29,10 +29,16 @@ function App() {
     setTasks(newTasks);
   };
 
+  const handleToggle = async (task) => {
+    const modifiedTask = await toggleCompleted(task.id);
+    const newTasks = tasks.map((t) => (t.id === task.id ? modifiedTask : t));
+    setTasks(newTasks);
+  };
+
   return (
     <div>
       <TaskForm onAdd={handleAdd} />
-      <TaskList tasks={tasks} onDelete={handleDelete} />
+      <TaskList tasks={tasks} onDelete={handleDelete} onToggle={handleToggle} />
     </div>
   );
 }
